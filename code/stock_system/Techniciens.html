@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Liste des techniciens</title>
+
+<style>
+
+body{
+    margin:0;
+    font-family:Segoe UI, Arial;
+    background:#f4f6f9;
+}
+
+/* NAVBAR */
+.navbar{
+    background:#2563eb;
+    color:white;
+    padding:15px 30px;
+    font-size:20px;
+    font-weight:bold;
+}
+
+/* CONTAINER */
+.container{
+    padding:40px;
+}
+
+/* GRID */
+.grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fill,minmax(250px,1fr));
+    gap:25px;
+}
+
+/* CARD */
+.card{
+    background:white;
+    border-radius:12px;
+    box-shadow:0 4px 12px rgba(0,0,0,0.08);
+    padding:20px;
+    text-align:center;
+    transition:0.3s;
+}
+
+.card:hover{
+    transform:translateY(-5px);
+}
+
+/* IMAGE */
+.card img{
+    width:120px;
+    height:120px;
+    border-radius:50%;
+    object-fit:cover;
+    margin-bottom:15px;
+    border:4px solid #2563eb;
+}
+
+/* NAME */
+.card h3{
+    margin:10px 0 5px;
+}
+
+/* ORIGINE */
+.origine{
+    color:#6b7280;
+    font-size:14px;
+    margin-bottom:15px;
+}
+
+/* BUTTON */
+.btn{
+    background:#16a34a;
+    color:white;
+    padding:8px 15px;
+    border:none;
+    border-radius:6px;
+    cursor:pointer;
+}
+
+.btn:hover{
+    background:#15803d;
+}
+
+</style>
+</head>
+<body>
+
+<div class="navbar">
+👷 Liste des techniciens
+</div>
+
+<div class="container">
+
+<div class="grid">
+
+<!-- TECHNICIEN 1 -->
+<div class="card">
+    <img src="https://randomuser.me/api/portraits/men/32.jpg">
+    <h3>Asine</h3>
+    <div class="origine">Origine : Tanger</div>
+    <button class="btn">Voir stock</button>
+</div>
+
+<!-- TECHNICIEN 2 -->
+<div class="card">
+    <img src="https://randomuser.me/api/portraits/men/45.jpg">
+    <h3>Mouad</h3>
+    <div class="origine">Origine : Casablanca</div>
+    <button class="btn">Voir stock</button>
+</div>
+
+<!-- TECHNICIEN 3 -->
+<div class="card">
+    <img src="https://randomuser.me/api/portraits/men/52.jpg">
+    <h3>Mustapha</h3>
+    <div class="origine">Origine : Rabat</div>
+    <button class="btn">Voir stock</button>
+</div>
+
+<!-- TECHNICIEN 4 -->
+<div class="card">
+    <img src="https://randomuser.me/api/portraits/men/76.jpg">
+    <h3>Yassine</h3>
+    <div class="origine">Origine : Marrakech</div>
+    <button class="btn">Voir stock</button>
+</div>
+
+</div>
+
+</div>
+
+</body>
+</html>

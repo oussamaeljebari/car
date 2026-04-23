@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>Catalogue Teltonika - Live Images</title>
+    <style>
+        body { font-family: 'Segoe UI', sans-serif; background-color: #f0f2f5; margin: 0; }
+        
+        .container { padding: 30px; max-width: 1200px; margin: auto; }
+        .category-title { border-left: 5px solid #1e4fd8; padding-left: 15px; margin: 40px 0 20px; color: #333; }
+        .devices-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); gap: 20px; }
+        .device-card { background: white; border-radius: 12px; padding: 20px; text-align: center; box-shadow: 0 4px 10px rgba(0,0,0,0.05); transition: 0.3s; }
+        .device-card:hover { transform: translateY(-5px); box-shadow: 0 8px 20px rgba(0,0,0,0.1); }
+        .device-card img { width: 100%; height: 150px; object-fit: contain; margin-bottom: 15px; }
+        .device-card h3 { color: #1e4fd8; font-size: 1.2rem; margin: 10px 0; }
+        .tag { background: #e0e7ff; color: #4338ca; padding: 5px 12px; border-radius: 20px; font-size: 0.75rem; font-weight: bold; }
+        .navbar {
+    background: linear-gradient(90deg, #1e4fd8, #2563eb);
+    padding: 12px 30px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.nav-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    color: white;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+    gap: 25px;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: white;
+    font-weight: 500;
+    padding: 6px 12px;
+    border-radius: 6px;
+    transition: 0.3s;
+}
+
+.nav-links a:hover {
+    background: rgba(255,255,255,0.2);
+}
+
+.nav-user {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    color: white;
+}
+    </style>
+</head>
+<body>
+<nav class="navbar">
+    <div class="nav-container">
+        <!-- Logo + Text -->
+        <div class="logo">
+             <img src="assets/sendatrack.png" alt="Sendatrack Logo" height="45">
+            📦Teltonika Stock Live
+        </div>
+
+        <!-- Liens de navigation -->
+        <ul class="nav-links">
+            <li><a href="devices.html">Type GPS</a></li>
+            <li><a href="index.html">Stock</a></li>
+            <li><a href="stock_clients.php">Stock Clients</a></li>
+            <li><a href="#">Rapports</a></li>
+        </ul>
+
+        <!-- Section utilisateur -->
+        <div class="nav-user">
+            <span>👤 Admin</span>
+            <button class="logout-btn">Déconnexion</button>
+        </div>
+
+        <!-- Bouton menu mobile -->
+        <div class="nav-toggle" onclick="toggleMenu()">☰</div>
+    </div>
+</nav>
+
+
+<div class="container">
+
+    <h2 class="category-title">Basic Trackers</h2>
+    <div class="devices-grid">
+        <div class="device-card">
+            <img src="type/fmb920-side.png" alt="FMB920">
+            <h3>FMB920</h3>
+            <div class="tag">2G | Bluetooth</div>
+        </div>
+        <div class="device-card">
+            <img src="type/fmc920-side.png" alt="FMC920">
+            <h3>FMC920</h3>
+            <div class="tag">4G LTE Cat 1</div>
+        </div>
+        <div class="device-card">
+            <img src="type/FMT100-01.png" alt="FMT100">
+            <h3>FMT100</h3>
+            <div class="tag">Easy Mount</div>
+        </div>
+    </div>
+
+    <h2 class="category-title">Advanced (CAN BUS)</h2>
+    <div class="devices-grid">
+        <div class="device-card">
+            <img src="type/fmb120-side.avif" alt="FMB120">
+            <h3>FMB120</h3>
+            <div class="tag">Advanced I/O</div>
+        </div>
+        <div class="device-card">
+            <img src="type/fmb140-side.png" alt="FMB140">
+            <h3>FMB140</h3>
+            <div class="tag">CAN Integrated</div>
+        </div>
+        <div class="device-card">
+            <img src="type/fmc150qjibo-side.avif" alt="FMC150">
+            <h3>FMC150</h3>
+            <div class="tag">4G + CAN Data</div>
+        </div>
+    </div>
+
+    <h2 class="category-title">Professional</h2>
+    <div class="devices-grid">
+        <div class="device-card">
+            <img src="type/FMB640_600X600_1.png" alt="FMB640">
+            <h3>FMB640</h3>
+            <div class="tag">Professional 2G</div>
+        </div>
+        <div class="device-card">
+            <img src="type/FMC640-side-2023-12-28.png" alt="FMC640">
+            <h3>FMC640</h3>
+            <div class="tag">Professional 4G</div>
+        </div>
+    </div>
+
+    <h2 class="category-title">Asset & Special</h2>
+    <div class="devices-grid">
+        <div class="device-card">
+            <img src="type/TAT100_BT_SIG.jpg" alt="TAT100">
+            <h3>TAT100</h3>
+            <div class="tag">Asset Tracker</div>
+        </div>
+        <div class="device-card">
+            <img src="type/fmb204-side.avif" alt="FMB204">
+            <h3>FMB204</h3>
+            <div class="tag">IP67 Waterproof</div>
+        </div>
+    </div>
+
+</div>
+
+</body>
+</html>

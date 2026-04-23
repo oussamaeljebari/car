@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<title>Système de gestion de stock</title>
+
+<style>
+  
+  .navbar {
+    background: linear-gradient(90deg, #1e4fd8, #2563eb);
+    padding: 12px 30px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.nav-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    color: white;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+    gap: 25px;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: white;
+    font-weight: 500;
+    padding: 6px 12px;
+    border-radius: 6px;
+    transition: 0.3s;
+}
+
+.nav-links a:hover {
+    background: rgba(255,255,255,0.2);
+}
+
+.nav-user {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    color: white;
+}
+
+.logout-btn {
+    background: #ef4444;
+    border: none;
+    padding: 6px 12px;
+    border-radius: 6px;
+    color: white;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.logout-btn:hover {
+    background: #dc2626;
+}
+
+body{
+ margin:0;
+ font-family:Arial;
+ background:#f4f6f8;
+}
+
+header{
+ background:#2563eb;
+ color:#fff;
+ padding:15px 25px;
+ font-size:22px;
+ font-weight:bold;
+}
+
+.container{
+ padding:25px;
+}
+
+.card{
+ background:#fff;
+ padding:20px;
+ border-radius:10px;
+ box-shadow:0 8px 20px rgba(0,0,0,.08);
+ margin-bottom:20px;
+}
+
+form, .filters{
+ display:grid;
+ grid-template-columns:repeat(auto-fit,minmax(180px,1fr));
+ gap:12px;
+}
+
+input, select, button{
+ padding:10px;
+ border-radius:6px;
+ border:1px solid #ccc;
+}
+
+button{
+ cursor:pointer;
+ font-weight:bold;
+}
+
+.btn-primary{background:#2563eb;color:#fff;border:none}
+.btn-success{background:#16a34a;color:#fff;border:none}
+.btn-warning{background:#ffc609;border:none}
+.btn-danger{background:#dc2626;color:#fff;border:none}
+
+table{
+ width:100%;
+ border-collapse:collapse;
+ background:#e2d625;
+}
+
+th, td{
+ padding:10px;
+ border:1px solid lch(88.12% 0.01 296.81);
+ text-align:center;
+}
+
+thead{
+ background:#e5e7eb;
+}
+
+/* COLORS */
+.status-tech{background:#22c55e !important;}
+.status-client{background:#ef4444 !important;}
+.status-stock{background:#3dc5dd !important;}
+
+.actions button{
+ padding:6px 8px;
+ font-size:12px;
+ margin:2px;
+}
+</style>
+</head>
+
+<body>
+<nav class="navbar">
+    <div class="nav-container">
+        <!-- Logo + Text -->
+        <div class="logo">
+             <img src="assets/sendatrack.png" alt="Sendatrack Logo" height="45">
+            📦 Système professionnel de stock
+        </div>
+
+        <!-- Liens de navigation -->
+        <ul class="nav-links">
+            <li><a href="devices.html">Type GPS</a></li>
+            <li><a href="index.html">Stock</a></li>
+            <li><a href="stock_clients.php">Stock Clients</a></li>
+            <li><a href="#">Rapports</a></li>
+        </ul>
+
+        <!-- Section utilisateur -->
+        <div class="nav-user">
+            <span>👤 Admin</span>
+            <button class="logout-btn">Déconnexion</button>
+        </div>
+
+        <!-- Bouton menu mobile -->
+        <div class="nav-toggle" onclick="toggleMenu()">☰</div>
+    </div>
+</nav>
+
+
+<div class="container">
+
+<div class="card">
+<h3>➕ Ajouter un appareil</h3>
+<form id="addForm">
+<input name="imei" placeholder="IMEI" required>
+<input name="nom_client" placeholder="Client" required>
+<input name="type_appareil" placeholder="Type">
+<select name="technicien_id">
+<option value="1">assim</option>
+<option value="2">Mouad</option>
+<option value="3">Mustapha</option>
+</select>
+<button class="btn-primary">Ajouter</button>
+</form>
+</div>
+
+<div class="card">
+<h3>🔍 Filtres</h3>
+<div class="filters">
+<select id="fTech">
+<option value="">Tous techniciens</option>
+<option>assim</option>
+<option>Mouad</option>
+<option>Mustapha</option>
+</select>
+
+<select id="fStatut">
+<option value="">Tous statuts</option>
+<option>En stock</option>
+<option>Chez le technicien</option>
+<option>Chez le client</option>
+<option>INSTALLATION</option>
+</select>
+
+<button class="btn-success" onclick="applyFilter()">Filtrer</button>
+<button class="btn-warning" onclick="load()">Reset</button>
+</div>
+</div>
+
+<div class="card">
+<h3>📋 Liste du stock</h3>
+<table>
+<thead>
+<tr>
+<th>IMEI</th>
+<th>Client</th>
+<th>Type</th>
+<th>Technicien</th>
+<th>Statut</th>
+<th>Date</th>
+<th>Actions</th>
+</tr>
+</thead>
+<tbody id="data"></tbody>
+</table>
+</div>
+
+</div>
+
+<script src="script.js">
+  function toggleMenu(){
+    document.querySelector('.nav-links').classList.toggle('active');
+}
+</script>
+</body>
+</html>
